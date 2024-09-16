@@ -1,7 +1,22 @@
 .app-header {
   background-color: var(--clr1);
-  color: var(--clr1bg);
   padding: 1em;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+}
+
+.app-header h1 {
+  flex-grow: 1;
+}
+
+
+.app-header >section a {
+  color: white;
+  display: grid;
+
 }
 
 @media(max-width: 720px) {
