@@ -9,7 +9,7 @@ export function BookDetails({ onBack, bookId }) {
 
     useEffect(() => {
         loadBook()
-    }, [])
+    }, [bookId])
 
     function loadBook() {
 

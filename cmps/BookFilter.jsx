@@ -11,6 +11,7 @@ export function BookFilter({ filterBy, onSetFilterBy }) {
 
     function handleChange({ target }) {
         const field = target.name
+        console.log('field', target.value)
         let value = target.value
 
         switch (target.type) {
@@ -23,28 +24,36 @@ export function BookFilter({ filterBy, onSetFilterBy }) {
                 value = target.checked
                 break
         }
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
+
+        if (field === 'listPrice') {
+            setFilterByToEdit(prevFilter => ({
+                ...prevFilter,
+                listPrice: { ...prevFilter.listPrice, amount: value }
+            }))
+        } else {
+            setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
+        }
     }
 
     function onSubmit(ev) {
         ev.preventDefault()
         onSetFilterBy(filterByToEdit)
     }
+    const { title, listPrice } = filterByToEdit
 
-    const { txt, minPrice } = filterByToEdit
-
-    const isValid = txt
+    const isValid = title
     return (
         <section className="book-filter">
             <h2>Filter Our books</h2>
             <form onSubmit={onSubmit}>
-                <label htmlFor="txt">Title</label>
-                <input value={txt} onChange={handleChange} type="text" name="txt" id="txt" />
+                <label htmlFor="title">Title</label>
+                <input value={title} onChange={handleChange} type="text" name="title" id="title" />
 
-                <label htmlFor="minPrice">Min Price</label>
-                <input value={minPrice || ''} onChange={handleChange} type="number" name="minPrice" id="minPrice" />
+                <label htmlFor="listPrice">Min Price</label>
+                <input value={listPrice.amount || ''} onChange={handleChange} type="number" name="listPrice" id="listPrice" />
 
                 <button disabled={!isValid}>Submit</button>
+                {/* <BookPreview book={book} /> */}
             </form>
         </section>
     )

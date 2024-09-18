@@ -2,15 +2,16 @@ import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
 const BOOK_KEY = 'bookDB'
-var gFilterBy = {
 
-    title: '',
-    listPrice: {
-        amount: 50,
-        currencyCode: 'USD',
-        isOnSale: false
-    }
-}
+// var gFilterBy = {
+
+//     title: '',
+//     listPrice: {
+//         amount: null,
+//         currencyCode: 'USD',
+//         isOnSale: false
+//     }
+// }
 _createBooks()
 
 export const bookService = {
@@ -20,25 +21,24 @@ export const bookService = {
     save,
     getEmptyBook,
     getNextBookId,
-    getFilterBy,
-    setFilterBy
+    getDefaultFilter,
+    // getFilterBy,
+    // setFilterBy
 }
 
-function query() {
+function query(filterBy = {}) {
     return storageService.query(BOOK_KEY)
         .then(books => {
-            if (gFilterBy.title) {
-                const regex = new RegExp(gFilterBy.title, 'i')
+            if (filterBy.title) {
+                const regex = new RegExp(filterBy.title, 'i')
                 books = books.filter(book => regex.test(book.title))
             }
-            if (gFilterBy.listPrice.amount) {
-                books = books.filter(book => book.listPrice.amount >= gFilterBy.listPrice.amount)
+            if (filterBy.listPrice.amount) {
+                books = books.filter(book => book.listPrice.amount >= filterBy.listPrice.amount)
             }
             return books
         })
-        .catch(err => {
-            console.error('Failed to query books', err);
-        })
+
 }
 
 function get(bookId) {
@@ -61,15 +61,24 @@ function getEmptyBook(title = '', listPrice = { amount: 0, currencyCode: 'USD', 
     return { id: '', title, listPrice }
 }
 
-function getFilterBy() {
-    return { ...gFilterBy }
+function getDefaultFilter() {
+    return {
+        title: '',
+        listPrice: {
+            amount: null
+        },
+    }
 }
 
-function setFilterBy(filterBy = {}) {
-    if (filterBy.title !== undefined) gFilterBy.title = filterBy.title
-    if (filterBy.listPrice.amount !== undefined) gFilterBy.listPrice.amount = filterBy.listPrice.amount
-    return gFilterBy
-}
+// function getFilterBy() {
+//     return { ...gFilterBy }
+// }
+
+// function setFilterBy(filterBy = {}) {
+//     if (filterBy.title !== undefined) gFilterBy.title = filterBy.title
+//     if (filterBy.listPrice.amount !== undefined) gFilterBy.listPrice.amount = filterBy.listPrice.amount
+//     return gFilterBy
+// }
 
 function getNextBookId(bookId) {
     return storageService.query(BOOK_KEY)

@@ -10,7 +10,8 @@ export function BookIndex() {
 // console.log(bookService.getFilterBy())
     const [books, setBooks] = useState(null)
     const [selectedBookId, setSelectedBookId] = useState(null)
-    const [filterBy, setFilterBy] = useState(bookService.getFilterBy())
+    const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
+    console.log(filterBy)
 
     useEffect(() => {
         loadBooks()
@@ -25,6 +26,7 @@ export function BookIndex() {
     }
 
     function onRemoveBook(bookId) {
+        debbuger
         bookService.remove(bookId)
             .then(() => {
                 setBooks(books => books.filter(book => book.id !== bookId))
@@ -39,11 +41,11 @@ export function BookIndex() {
     }
 
     function onSetFilterBy(filterBy) {
+        console.log(filterBy)
         setFilterBy({ ...filterBy })
     }
 
     if (!books) return <h1>Loading...</h1>
-    // console.log(books)
     return (
         <section className="book-index">
             {selectedBookId
