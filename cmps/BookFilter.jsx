@@ -1,20 +1,20 @@
-
 const { useState, useEffect } = React
 
-export function BookFilter({ filterBy, onSetFilterBy }) {
+export function BookFilter({ filterBy, handleFilterChange }) {
 
-    const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
+   const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
 
-    useEffect(() => {
-        onSetFilterBy(filterByToEdit)
-    }, [filterByToEdit])
+    // Temporarily disabled to prevent filtering on every input change, 
+    // enabling filtering only on submit
+    // useEffect(() => {
+    //     handleFilterChange(filterByToEdit)
+    // }, [filterByToEdit])
 
-    function handleChange({ target }) {
-        const field = target.name
-        console.log('field', target.value)
-        let value = target.value
+    function handleOnChange({ target }) {
+        const { name: field, type } = target
+        let { value } = target
 
-        switch (target.type) {
+        switch (type) {
             case 'number':
             case 'range':
                 value = +value
@@ -25,35 +25,92 @@ export function BookFilter({ filterBy, onSetFilterBy }) {
                 break
         }
 
-        if (field === 'listPrice') {
-            setFilterByToEdit(prevFilter => ({
-                ...prevFilter,
-                listPrice: { ...prevFilter.listPrice, amount: value }
-            }))
-        } else {
-            setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
-        }
+        setFilterByToEdit(prevFilter => ({...prevFilter, [field]: value}))
     }
 
     function onSubmit(ev) {
         ev.preventDefault()
-        onSetFilterBy(filterByToEdit)
+        handleFilterChange(filterByToEdit)
     }
-    const { title, listPrice } = filterByToEdit
 
-    const isValid = title
+    const { title, maxPrice, minPrice, category, isOnSale } = filterByToEdit
+
+    function isValidFilter() {
+        return (
+            title || 
+            category ||
+            typeof isOnSale === 'boolean' ||
+            (typeof maxPrice === 'number' && maxPrice >= 0) || 
+            (typeof minPrice === 'number' && minPrice >= 0)
+        )
+    }
+
     return (
         <section className="book-filter">
-            <h2>Filter Our books</h2>
+            <h2>Filter Our Books</h2>
             <form onSubmit={onSubmit}>
-                <label htmlFor="title">Title</label>
-                <input value={title} onChange={handleChange} type="text" name="title" id="title" />
+                <div>
+                    <label htmlFor="title">Title: </label>
+                    <input 
+                        type="text"
+                        id="title"
+                        name="title"
+                        value={title}
+                        onChange={handleOnChange}
+                        placeholder="Search by title"
+                    />
+                </div>
 
-                <label htmlFor="listPrice">Min Price</label>
-                <input value={listPrice.amount || ''} onChange={handleChange} type="number" name="listPrice" id="listPrice" />
+                <div>
+                    <label htmlFor="maxPrice">Max Price: </label>
+                    <input
+                        type="number"
+                        id="maxPrice"
+                        name="maxPrice"
+                        value={maxPrice || ''}
+                        onChange={handleOnChange}
+                        placeholder="Enter max price"
+                    />
+                </div>
 
-                <button disabled={!isValid}>Submit</button>
-                {/* <BookPreview book={book} /> */}
+                <div>
+                    <label htmlFor="minPrice">Min Price: </label>
+                    <input
+                        type="number"
+                        id="minPrice"
+                        name="minPrice"
+                        value={minPrice || ''}
+                        onChange={handleOnChange}
+                        placeholder="Enter min price"
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="category">Category: </label>
+                    <select
+                        id="category"
+                        name="category"
+                        value={category}
+                        onChange={handleOnChange}
+                    >
+                        <option value="">Select Category</option>
+                        <option value="Computers">Computers</option>
+                        <option value="Hack">Hack</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label htmlFor="isOnSale">On Sale: </label>
+                    <input
+                        type="checkbox"
+                        id="isOnSale"
+                        name="isOnSale"
+                        checked={isOnSale}
+                        onChange={handleOnChange}
+                    />
+                </div>
+
+                <button type="submit" disabled={!isValidFilter()}>Apply Filter</button>
             </form>
         </section>
     )

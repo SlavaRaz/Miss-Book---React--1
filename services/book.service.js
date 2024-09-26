@@ -1,5 +1,6 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
+import { getDemoBooks } from './book-data.js'
 
 const BOOK_KEY = 'bookDB'
 
@@ -29,16 +30,9 @@ export const bookService = {
 function query(filterBy = {}) {
     return storageService.query(BOOK_KEY)
         .then(books => {
-            if (filterBy.title) {
-                const regex = new RegExp(filterBy.title, 'i')
-                books = books.filter(book => regex.test(book.title))
-            }
-            if (filterBy.listPrice.amount) {
-                books = books.filter(book => book.listPrice.amount >= filterBy.listPrice.amount)
-            }
+            books = _getFilteredBooks(books, filterBy)
             return books
         })
-
 }
 
 function get(bookId) {
@@ -64,10 +58,29 @@ function getEmptyBook(title = '', listPrice = { amount: 0, currencyCode: 'USD', 
 function getDefaultFilter() {
     return {
         title: '',
-        listPrice: {
-            amount: null
-        },
+        maxPrice: 0
     }
+}
+
+function _getFilteredBooks(books, filterBy) {
+    if (filterBy.title) {
+        const regExp = new RegExp(filterBy.title, 'i')
+        books = books.filter(book => regExp.test(book.title))
+    }
+    if (filterBy.maxPrice) {
+        books = books.filter(book => book.listPrice.amount <= filterBy.maxPrice)
+    }
+    if (filterBy.minPrice) {
+        books = books.filter(book => book.listPrice.amount >= filterBy.minPrice)
+    }
+    if (filterBy.category) {
+        books = books.filter(book => book.categories.includes(filterBy.category))
+    }
+    if (filterBy.isOnSale) {
+        books = books.filter(book => book.listPrice.isOnSale)
+    }
+
+    return books
 }
 
 // function getFilterBy() {
@@ -92,16 +105,13 @@ function getNextBookId(bookId) {
 function _createBooks() {
     let books = utilService.loadFromStorage(BOOK_KEY)
     if (!books || !books.length) {
-        books = []
-        books.push(_createBook('cartoon', { amount: 50, currencyCode: 'USD', isOnSale: false }))
-        books.push(_createBook('love', { amount: 120, currencyCode: 'USD', isOnSale: true }))
-        books.push(_createBook('fantasy', { amount: 100, currencyCode: 'USD', isOnSale: false }))
+        books = getDemoBooks()
         utilService.saveToStorage(BOOK_KEY, books)
     }
 }
 
-function _createBook(title, listPrice = { amount: 250, currencyCode: 'USD', isOnSale: false }) {
-    const book = getEmptyBook(title, listPrice)
-    book.id = utilService.makeId()
-    return book
-}
+// function _createBook(title, listPrice = { amount: 250, currencyCode: 'USD', isOnSale: false }) {
+//     const book = getEmptyBook(title, listPrice)
+//     book.id = utilService.makeId()
+//     return book
+// }
