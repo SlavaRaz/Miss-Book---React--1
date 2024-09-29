@@ -23,7 +23,7 @@ export const bookService = {
     getEmptyBook,
     getNextBookId,
     getDefaultFilter,
-    // getFilterBy,
+    addReview,
     // setFilterBy
 }
 
@@ -42,6 +42,15 @@ function get(bookId) {
 
 function remove(bookId) {
     return storageService.remove(BOOK_KEY, bookId)
+}
+
+function addReview(bookId, review) {
+    return storageService.get(BOOK_KEY, bookId)
+        .then(book => {
+            if (!book.reviews) book.reviews = []
+            book.reviews.push(review)
+            return storageService.put(BOOK_KEY, book)
+        })
 }
 
 function save(book) {

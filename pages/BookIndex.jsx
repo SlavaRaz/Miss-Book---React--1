@@ -62,7 +62,7 @@ export function BookIndex() {
     }
 
     function onSetFilterBy(filterBy) {
-        console.log(filterBy)
+        // console.log(filterBy)
         setFilterBy({ ...filterBy })
     }
 

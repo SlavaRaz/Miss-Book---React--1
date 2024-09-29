@@ -4,6 +4,8 @@ const { useParams, useNavigate, Link } = ReactRouterDOM
 
 import { bookService } from "../services/book.service.js"
 import { showErrorMsg } from "../services/event-bus.service.js"
+import { BookReview } from "../pages/BookReview.jsx"
+
 
 export function BookDetails() {
 
@@ -32,6 +34,9 @@ export function BookDetails() {
         navigate('/book')
     }
 
+    function handleAddReview() {
+        loadBook() // Reload book data to refresh reviews
+    }
 
     if (!book) return <div>Loading...</div>
     return (
@@ -45,6 +50,23 @@ export function BookDetails() {
                 <button ><Link to={`/book/${book.prevBookId}`}>Prev book</Link></button>
                 <button ><Link to={`/book/${book.nextBookId}`}>Next book</Link></button>
             </section>
-        </section>
+            <section>
+                <h3>Reviews</h3>
+                {book.reviews && book.reviews.length ? (
+                    <ul>
+                        {book.reviews.map((review, idx) => (
+                            <li key={idx}>
+                                <p><strong>{review.fullname}</strong> ({review.readAt})</p>
+                                <p>Rating: {'⭐'.repeat(review.rating)}</p>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No reviews yet.</p>
+                )}
+            </section>
+
+            <BookReview bookId={book.id} onAddReview={handleAddReview} />
+        </section >
     )
 }
