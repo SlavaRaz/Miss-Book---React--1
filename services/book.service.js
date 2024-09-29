@@ -28,7 +28,6 @@ export const bookService = {
 }
 
 function query(filterBy = {}) {
-    console.log(filterBy)
     return storageService.query(BOOK_KEY)
         .then(books => {
             books = _getFilteredBooks(books, filterBy)

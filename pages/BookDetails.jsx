@@ -66,7 +66,7 @@ export function BookDetails() {
                 )}
             </section>
 
-            <BookReview bookId={book.id} onAddReview={handleAddReview} />
+            <BookReview book={book} onAddReview={handleAddReview} />
         </section >
     )
 }
