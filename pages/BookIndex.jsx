@@ -6,12 +6,15 @@ import { bookService } from "../services/book.service.js"
 import { BookDetails } from "./BookDetails.jsx"
 import { BookFilter } from "../cmps/BookFilter.jsx"
 import { BookList } from "../cmps/BookList.jsx"
+import { AppLoader } from "../cmps/AppLoader.jsx"
 
 
 export function BookIndex() {
 
     const [books, setBooks] = useState(null)
     const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
+    const [isEdit, setIsEdit] = useState(false)
+    const [selectedBookId, setSelectedBookId] = useState('')
 
     useEffect(() => {
         loadBooks()
@@ -22,6 +25,26 @@ export function BookIndex() {
             .then(setBooks)
             .catch(err => {
                 console.log('Problems getting books:', err)
+            })
+    }
+
+    function handleFilterChange(filterBy) {
+        setFilterBy({ ...filterBy })
+    }
+
+    function onSelectBook(bookId) {
+        setSelectedBookId(bookId)
+    }
+
+    function onSaveBook(bookToSave) {
+        bookService.save(bookToSave)
+            .then(() => {
+                setIsEdit(false)
+                setSelectedBookId(null)
+                loadBooks()
+            })
+            .catch(err => {
+                console.log('Had issues with book save:', err)
             })
     }
 
@@ -43,7 +66,7 @@ export function BookIndex() {
         setFilterBy({ ...filterBy })
     }
 
-    if (!books) return <h1>Loading...</h1>
+    if (!books) return <AppLoader />
     return (
         <section className="book-index">
 

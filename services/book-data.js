@@ -13,7 +13,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/20.jpg",
+        "thumbnail": "/assets/img/3.jpg",
         "language": "en",
         "listPrice": {
             "amount": 109,
@@ -35,7 +35,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/14.jpg",
+        "thumbnail": "/assets/img/14.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 44,
@@ -57,7 +57,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/2.jpg",
+        "thumbnail": "/assets/img/2.jpg",
         "language": "he",
         "listPrice": {
             "amount": 108,
@@ -79,7 +79,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/16.jpg",
+        "thumbnail": "/assets/img/16.jpg",
         "language": "en",
         "listPrice": {
             "amount": 30,
@@ -101,7 +101,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/12.jpg",
+        "thumbnail": "/assets/img/12.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 19,
@@ -123,7 +123,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/1.jpg",
+        "thumbnail": "/assets/img/1.jpg",
         "language": "en",
         "listPrice": {
             "amount": 91,
@@ -145,7 +145,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/14.jpg",
+        "thumbnail": "/assets/img/14.jpg",
         "language": "he",
         "listPrice": {
             "amount": 90,
@@ -167,7 +167,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/11.jpg",
+        "thumbnail": "/assets/img/11.jpg",
         "language": "he",
         "listPrice": {
             "amount": 176,
@@ -189,7 +189,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/10.jpg",
+        "thumbnail": "/assets/img/10.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 116,
@@ -211,7 +211,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/5.jpg",
+        "thumbnail": "/assets/img/5.jpg",
         "language": "en",
         "listPrice": {
             "amount": 145,
@@ -233,7 +233,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/16.jpg",
+        "thumbnail": "/assets/img/16.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 157,
@@ -255,7 +255,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/17.jpg",
+        "thumbnail": "/assets/img/17.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 57,
@@ -277,7 +277,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/8.jpg",
+        "thumbnail": "/assets/img/8.jpg",
         "language": "en",
         "listPrice": {
             "amount": 167,
@@ -299,7 +299,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/3.jpg",
+        "thumbnail": "/assets/img/3.jpg",
         "language": "he",
         "listPrice": {
             "amount": 150,
@@ -321,7 +321,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/6.jpg",
+        "thumbnail": "/assets/img/6.jpg",
         "language": "en",
         "listPrice": {
             "amount": 58,
@@ -343,7 +343,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/7.jpg",
+        "thumbnail": "/assets/img/7.jpg",
         "language": "en",
         "listPrice": {
             "amount": 78,
@@ -365,7 +365,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/10.jpg",
+        "thumbnail": "/assets/img/10.jpg",
         "language": "en",
         "listPrice": {
             "amount": 118,
@@ -387,7 +387,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/12.jpg",
+        "thumbnail": "/assets/img/12.jpg",
         "language": "he",
         "listPrice": {
             "amount": 60,
@@ -409,7 +409,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/20.jpg",
+        "thumbnail": "/assets/img/20.jpg",
         "language": "he",
         "listPrice": {
             "amount": 110,
@@ -431,7 +431,7 @@ const demoBooks = [
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/2.jpg",
+        "thumbnail": "/assets/img/2.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 186,
@@ -448,7 +448,7 @@ const demoBooks = [
         description: "A story of the French Revolution and personal sacrifice.",
         pageCount: 489,
         categories: ["Historical Fiction"],
-        thumbnail: "http://coding-academy.org/books-photos/21.jpg",
+        thumbnail: "/assets/img/21.jpg",
         language: "en",
         listPrice: {
             amount: 95,
@@ -465,7 +465,7 @@ const demoBooks = [
         description: "A novel that tells the story of five families during the Napoleonic Wars.",
         pageCount: 1225,
         categories: ["Classics", "Historical Fiction"],
-        thumbnail: "http://coding-academy.org/books-photos/22.jpg",
+        thumbnail: "/assets/img/22.jpg",
         language: "ru",
         listPrice: {
             amount: 130,
@@ -482,7 +482,7 @@ const demoBooks = [
         description: "The mysterious millionaire Jay Gatsby and his obsession with Daisy Buchanan.",
         pageCount: 180,
         categories: ["Classics", "American Fiction"],
-        thumbnail: "http://coding-academy.org/books-photos/23.jpg",
+        thumbnail: "/assets/img/23.jpg",
         language: "en",
         listPrice: {
             amount: 45,
@@ -499,7 +499,7 @@ const demoBooks = [
         description: "A chilling vision of a totalitarian future society.",
         pageCount: 328,
         categories: ["Dystopia", "Political Fiction"],
-        thumbnail: "http://coding-academy.org/books-photos/24.jpg",
+        thumbnail: "/assets/img/24.jpg",
         language: "en",
         listPrice: {
             amount: 60,
@@ -516,7 +516,7 @@ const demoBooks = [
         description: "Captain Ahab's obsessive quest for revenge against the great white whale.",
         pageCount: 635,
         categories: ["Adventure", "Classics"],
-        thumbnail: "http://coding-academy.org/books-photos/25.jpg",
+        thumbnail: "/assets/img/25.jpg",
         language: "en",
         listPrice: {
             amount: 80,
@@ -533,7 +533,7 @@ const demoBooks = [
         description: "Bilbo Baggins' unexpected adventure to recover treasure guarded by a dragon.",
         pageCount: 310,
         categories: ["Fantasy", "Adventure"],
-        thumbnail: "http://coding-academy.org/books-photos/26.jpg",
+        thumbnail: "/assets/img/26.jpg",
         language: "en",
         listPrice: {
             amount: 72,
@@ -550,7 +550,7 @@ const demoBooks = [
         description: "A witty and romantic story about class and social expectations in England.",
         pageCount: 432,
         categories: ["Romance", "Classics"],
-        thumbnail: "http://coding-academy.org/books-photos/27.jpg",
+        thumbnail: "/assets/img/27.jpg",
         language: "en",
         listPrice: {
             amount: 55,
@@ -567,7 +567,7 @@ const demoBooks = [
         description: "A futuristic society where human freedoms have been exchanged for stability.",
         pageCount: 268,
         categories: ["Dystopia", "Science Fiction"],
-        thumbnail: "http://coding-academy.org/books-photos/28.jpg",
+        thumbnail: "/assets/img/28.jpg",
         language: "en",
         listPrice: {
             amount: 65,
@@ -584,7 +584,7 @@ const demoBooks = [
         description: "The story of a young man who struggles to make sense of life and society.",
         pageCount: 277,
         categories: ["Classics", "American Fiction"],
-        thumbnail: "http://coding-academy.org/books-photos/29.jpg",
+        thumbnail: "/assets/img/29.jpg",
         language: "en",
         listPrice: {
             amount: 40,
@@ -601,7 +601,7 @@ const demoBooks = [
         description: "A young girl observes the prejudice and legal battles of her father, a lawyer.",
         pageCount: 281,
         categories: ["Classics", "American Fiction"],
-        thumbnail: "http://coding-academy.org/books-photos/30.jpg",
+        thumbnail: "/assets/img/30.jpg",
         language: "en",
         listPrice: {
             amount: 50,
@@ -618,7 +618,7 @@ const demoBooks = [
         description: "A shepherd's journey to discover the meaning of life and his personal legend.",
         pageCount: 208,
         categories: ["Philosophy", "Adventure"],
-        thumbnail: "http://coding-academy.org/books-photos/31.jpg",
+        thumbnail: "/assets/img/31.jpg",
         language: "pt",
         listPrice: {
             amount: 75,
@@ -635,7 +635,7 @@ const demoBooks = [
         description: "A tale of a man who believes he is a knight and his comedic misadventures.",
         pageCount: 863,
         categories: ["Classics", "Satire"],
-        thumbnail: "http://coding-academy.org/books-photos/32.jpg",
+        thumbnail: "/assets/img/32.jpg",
         language: "es",
         listPrice: {
             amount: 120,
@@ -652,7 +652,7 @@ const demoBooks = [
         description: "Jean Valjean’s journey through life in post-revolutionary France.",
         pageCount: 1463,
         categories: ["Classics", "Historical Fiction"],
-        thumbnail: "http://coding-academy.org/books-photos/33.jpg",
+        thumbnail: "/assets/img/33.jpg",
         language: "fr",
         listPrice: {
             amount: 135,
@@ -669,7 +669,7 @@ const demoBooks = [
         description: "A visionary epic about the travels through Hell, Purgatory, and Heaven.",
         pageCount: 798,
         categories: ["Classics", "Poetry"],
-        thumbnail: "http://coding-academy.org/books-photos/34.jpg",
+        thumbnail: "/assets/img/34.jpg",
         language: "it",
         listPrice: {
             amount: 140,
@@ -686,7 +686,7 @@ const demoBooks = [
         description: "Odysseus's long and perilous journey home after the Trojan War.",
         pageCount: 408,
         categories: ["Classics", "Adventure"],
-        thumbnail: "http://coding-academy.org/books-photos/35.jpg",
+        thumbnail: "/assets/img/35.jpg",
         language: "gr",
         listPrice: {
             amount: 110,

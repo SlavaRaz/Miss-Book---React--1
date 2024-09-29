@@ -14,3 +14,15 @@
 .book-preview img {
     max-width: 100px;
 }
+
+.red-price {
+    color: red;
+}
+
+.green-price {
+    color: green;
+}
+
+.default-price {
+    color: black; /* Or any other default color */
+}
